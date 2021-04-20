@@ -2,11 +2,11 @@ Authors: Maxime Bulteel - Antoine Loyer - Hugo Fardel
 
 # web_api_rocket_league
 
-langage: Node JS
+langage: Node JS - Vue JS - MongoDb
 
 
 Notre API:
-- move 
+- move (nom, lien menant vers une video)
 - items
 
 
