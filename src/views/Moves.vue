@@ -1,5 +1,24 @@
 <template>
-  <div class="moves">
-    <h1>This is an moves page</h1>
+  <div class="moves-container">
+    <MovesComponent/>
   </div>
 </template>
+
+
+<script>
+import MovesComponent from '../components/MovesComponent.vue'
+
+export default {
+  name: 'App',
+  components: {
+    MovesComponent
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.moves-container{
+    width: 100%;
+}
+
+</style>
