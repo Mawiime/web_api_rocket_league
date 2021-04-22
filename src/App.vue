@@ -7,6 +7,7 @@
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/moves">Moves</router-link></li>
         <li><router-link to="/items">Items</router-link></li>
+        <li><router-link to="/twitch">Twitch</router-link></li>
       </ul>
     </header>
     <router-view/>

@@ -86,3 +86,12 @@ table{
     }
 }
 </style>
+
+<!--
+
+https://id.twitch.tv/oauth2/authorize?client_id=9vccw2g8hpx4e6yhcye036zhr9uk6r&redirect_uri=http://localhost&response_type=code&scope=viewing_activity_read
+
+http://localhost/?code=292ficgerfvne4lxddenx9krx325uh&scope=viewing_activity_read
+
+292ficgerfvne4lxddenx9krx325uh
+-->

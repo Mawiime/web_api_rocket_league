@@ -19,6 +19,11 @@ const routes = [
     path: '/items',
     name: 'Items',
     component: () => import('../views/Items.vue')
+  },
+  {
+    path: '/twitch',
+    name: 'Twitch',
+    component: () => import('../views/Twitch.vue')
   }
 ]
 
