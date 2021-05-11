@@ -1,27 +1,32 @@
 [
     {
         "id": 1,
-        "name":"Musty flick",
+        "name": "Musty flick",
         "videoLink": "https://www.youtube.com/watch?v=jVzlmApbD8M"
     },
     {
         "id": 2,
-        "name":"Breezy flick",
+        "name": "Breezy flick",
         "videoLink": "https://www.youtube.com/watch?v=IVQMBhkq1VQ"
     },
     {
         "id": 3,
-        "name":"Flip reset",
+        "name": "Flip reset",
         "videoLink": "https://www.youtube.com/watch?v=BAcItjAgLa8"
     },
     {
         "id": 4,
-        "name":"Double tap",
+        "name": "Double tap",
         "videoLink": "https://www.youtube.com/watch?v=jxV796rHsQQ"
     },
     {
         "id": 5,
-        "name":"Pogo",
-        "videoLink" : "https://www.youtube.com/watch?v=iO6qSoT5eQs"
+        "name": "Pogo",
+        "videoLink": "https://www.youtube.com/watch?v=iO6qSoT5eQs"
+    },
+    {
+        "name": "Example Post",
+        "videoLink": "Example",
+        "id": 6
     }
 ]

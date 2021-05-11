@@ -1,4 +1,5 @@
 const connection = require('../moves.json')
+const fs = require('fs')
 const moves = {}
 
 moves.list = async function(){
@@ -11,6 +12,10 @@ moves.getOne = async function (id) {
 }
 
 moves.create = async function (data) {
+    var lastMove = Object.keys(connection).sort().reverse()[0]
+    var lastId = connection[lastMove].id
+
+    data.id = parseInt(lastId) + 1
     return await connection.push(data)
 }
 
@@ -25,4 +30,15 @@ moves.destroy = async function (id) {
     return await moves.splice(moves.indexOf(move),1)
 }
 
+setInterval(refresh, 3000)
+
 module.exports = moves
+
+function refresh()
+{
+    console.log('yo')
+    fs.writeFile('./moves.json', JSON.stringify(connection, null, 4), (err) => {
+        if(err)
+            console.log(err)
+    })
+}
