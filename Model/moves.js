@@ -36,7 +36,6 @@ module.exports = moves
 
 function refresh()
 {
-    console.log('yo')
     fs.writeFile('./moves.json', JSON.stringify(connection, null, 4), (err) => {
         if(err)
             console.log(err)
