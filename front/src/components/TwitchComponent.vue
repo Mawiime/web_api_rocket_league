@@ -25,8 +25,8 @@ export default {
         fetch(fetchLink, {
             method: 'get',
             headers: new Headers({
-                'Authorization': 'Bearer f8wc4vij20lldxcic1y57bsvi7uqg2',
-                'Client-ID' : '9vccw2g8hpx4e6yhcye036zhr9uk6r',
+                'Authorization': process.env.VUE_APP_TWITCH_AUTHORIZATION,
+                'Client-ID' : process.env.VUE_APP_TWITCH_CLIENT_ID
             }) 
         })
         .then(function(response){
