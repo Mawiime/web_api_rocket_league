@@ -1,7 +1,9 @@
 <template>
   <div class="twitch">
-      <div class="streamers" v-for="item in listStreamer" :key="item.id">
-        {{ item.type }} - {{ item.user_name }} - {{ item.viewer_count }}
+    <h1>Streamer Twitch</h1>
+    <p>list of streamers currently on Twitch on rocket league order by the number of viewer</p>
+    <div class="streamers" v-for="item in listStreamer" :key="item.id">
+      {{ item.type }} - {{ item.user_name }} - {{ item.viewer_count }}
     </div>
   </div>
 </template>
@@ -49,12 +51,21 @@ export default {
   },
 
   mounted () {
-      this.fetchStream();
+    this.fetchStream();
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+h1{
+  margin-top: 20px;
+}
+
+p{
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
 
 </style>

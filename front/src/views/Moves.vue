@@ -1,5 +1,5 @@
 <template>
-  <div class="moves-container">
+  <div class="moves-container page">
     <MovesComponent/>
   </div>
 </template>

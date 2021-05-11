@@ -1,5 +1,5 @@
 <template>
-  <div class="twitch-container">
+  <div class="twitch-container page">
     <TwitchComponent/>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-<div class="home">
+<div class="home page">
   <div class="circle"></div>
   <div class="content">
     <div class="textBox">

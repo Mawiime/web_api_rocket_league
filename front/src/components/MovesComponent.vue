@@ -1,10 +1,10 @@
 <template>
   <div class="moves">
-    <h1>Liste des Moves</h1>
+    <h1>List of Moves</h1>
     <table>
         <tr v-for="item in listMoves" :key="item">
             <td>{{item.name}}</td>
-            <td><a :href='item.url'>Lien</a></td>
+            <td><a :href='item.url'>Link</a></td>
         </tr>
     </table>
 
