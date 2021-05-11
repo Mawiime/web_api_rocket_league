@@ -16,7 +16,6 @@ export default {
         listStreamer : [],
       }
   },
-
   methods : {
       fetchStream : function (){
         let fetchLink = "https://api.twitch.tv/helix/streams?game_id=30921";

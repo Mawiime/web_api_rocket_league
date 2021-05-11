@@ -2,15 +2,11 @@
   <div class="moves">
     <h1>List of Moves</h1>
     <table>
-        <tr v-for="item in listMoves" :key="item">
+        <tr v-for="item in listMoves" :key="item.id">
             <td>{{item.name}}</td>
-            <td><a :href='item.url'>Link</a></td>
+            <td><a :href="item.videoLink" target="_blank">Link</a></td>
         </tr>
     </table>
-
-    <ul>
-        <li v-for="item in posts" :key="item">{{item}}</li>
-    </ul>
   </div>
 </template>
 
@@ -20,23 +16,17 @@ export default {
   name: 'MovesComponent',
   data() {
         return {
-            listMoves: [
-                {id: 1, name : 'flip reset', url : 'http://localhost'}, 
-                {id: 2, name : 'double tap', url : 'http://localhost'},
-                {id: 3, name : 'wavedash', url : 'http://localhost'}
-            ],
-            posts : [],
+            listMoves: [],
             errors : []
         }
-    },
-
-    // Fetches posts when the component is created.
+  },
+  // Fetches posts when the component is created.
   created() {
       //test sur une api random
-    axios.get(`http://jsonplaceholder.typicode.com/posts`)
+    axios.get(`http://localhost:3000/moves`)
     .then(response => {
       // JSON responses are automatically parsed.
-      this.posts = response.data
+      this.listMoves = response.data
     })
     .catch(e => {
       this.errors.push(e)
