@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "devStart": "nodemon --ignore 'moves.json' app.js"
+    "devStart": "nodemon --ignore 'Data/' app.js"
   },
   "repository": {
     "type": "git",

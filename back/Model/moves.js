@@ -1,4 +1,4 @@
-const connection = require('../moves.json')
+const connection = require('../Data/moves.json')
 const fs = require('fs')
 const moves = {}
 
@@ -21,13 +21,17 @@ moves.create = async function (data) {
 
 moves.edit = function (id, data) {
     let move = connection.find(move => move.id === id)
-    move.name = data.name
-    move.videoLink = data.videoLink
+
+    if(data.name != undefined)
+        move.name = data.name
+
+    if(data.videoLink != undefined)
+        move.videoLink = data.videoLink
 }
 
 moves.destroy = async function (id) {
-    let move = moves.find(move => move.id === id)
-    return await moves.splice(moves.indexOf(move),1)
+    let move = connection.find(move => move.id === id)
+    return await connection.splice(connection.indexOf(move),1)
 }
 
 setInterval(refresh, 3000)
@@ -36,7 +40,7 @@ module.exports = moves
 
 function refresh()
 {
-    fs.writeFile('./moves.json', JSON.stringify(connection, null, 4), (err) => {
+    fs.writeFile('./Data/moves.json', JSON.stringify(connection, null, 4), (err) => {
         if(err)
             console.log(err)
     })

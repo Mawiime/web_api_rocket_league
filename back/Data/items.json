@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "itemName": "Octane",
+        "itemType": "test",
+        "itemImage": "../../front/src/assets/octane.png"
+    },
+    {
+        "itemName": "Fennec",
+        "itemType": "body",
+        "itemImage": "../../front/src/assets/fennec.png",
+        "id": 2
+    }
+]
