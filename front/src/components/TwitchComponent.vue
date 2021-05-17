@@ -1,9 +1,15 @@
 <template>
   <div class="twitch">
-    <h1>Streamer Twitch</h1>
-    <p>list of streamers currently on Twitch on rocket league order by the number of viewer</p>
-    <div class="streamers" v-for="item in listStreamer" :key="item.id">
-      {{ item.type }} - {{ item.user_name }} - {{ item.viewer_count }}
+    <div class="glob">
+      <div class="list">
+        <h1>Streamer Twitch</h1>
+        <p>list of streamers currently on Twitch on rocket league order by the number of viewer</p>
+      </div>
+      <div class="list">
+        <div class="streamers" v-for="item in listStreamer" :key="item.id">
+          {{ item.type }} - <a :href="'https://www.twitch.tv/'+item.user_name">{{ item.user_name }}</a> - {{ item.viewer_count }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +40,6 @@ export default {
         })
         .then(data => {
             let dataFromGame = [];
-            
             for(let key in data.data){
                 dataFromGame.push({
                     id : data.data[key].user_id,
@@ -59,12 +64,22 @@ export default {
 <style scoped lang="scss">
 
 h1{
-  margin-top: 20px;
+  width: 580px;
 }
 
 p{
   margin-bottom: 30px;
   margin-top: 15px;
+}
+
+.glob{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.streamers{
+  display: block;
 }
 
 </style>

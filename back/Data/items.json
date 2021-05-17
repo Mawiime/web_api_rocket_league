@@ -2,13 +2,13 @@
     {
         "id": 1,
         "itemName": "Octane",
-        "itemType": "test",
-        "itemImage": "../../front/src/assets/octane.png"
+        "itemType": "body",
+        "itemImage": "octaneItem.png"
     },
     {
         "itemName": "Fennec",
         "itemType": "body",
-        "itemImage": "../../front/src/assets/fennec.png",
+        "itemImage": "fennec.png",
         "id": 2
     }
 ]

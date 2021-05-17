@@ -1,5 +1,16 @@
 <template>
   <div class="items page">
-    <h1>This is an items page</h1>
+    <ItemsComponent />
   </div>
 </template>
+
+<script>
+import ItemsComponent from '../components/ItemsComponent.vue'
+
+export default {
+  name: 'App',
+  components: {
+    ItemsComponent
+  }
+}
+</script>
