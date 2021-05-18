@@ -54,11 +54,11 @@
   
         <main class="leaderboard__profiles">  
           <div v-for="item in listStreamer" :key="item.id">
-            <a :href="'https://twitch.tv/'+item.user_name">
+            <a :href="'https://twitch.tv/'+item.user_name" target="_blank">
             <article class="leaderboard__profile">
-            <img :src="item.image" alt="Evan Spiegel" class="leaderboard__picture">
-            <span class="leaderboard__name">{{ item.user_name }}</span>
-            <span class="leaderboard__value"> {{ item.viewer_count }}<span>B</span></span>
+              <img :src="item.image" :alt="item.user_name" class="leaderboard__picture">
+              <span class="leaderboard__name">{{ item.user_name }}</span>
+              <span class="leaderboard__value"> {{ item.viewer_count }}<span>o</span></span>
             </article>
             </a>
           </div>
