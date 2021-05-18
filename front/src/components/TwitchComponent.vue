@@ -52,12 +52,16 @@
           <h1 class="leaderboard__title"><span class="leaderboard__title--top">Twitch</span><span class="leaderboard__title--bottom">Streamers</span></h1>
         </div>
   
-        <main class="leaderboard__profiles">
-          <article class="leaderboard__profile" v-for="item in listStreamer" :key="item.id">
+        <main class="leaderboard__profiles">  
+          <div v-for="item in listStreamer" :key="item.id">
+            <a :href="'https://twitch.tv/'+item.user_name">
+            <article class="leaderboard__profile">
             <img :src="item.image" alt="Evan Spiegel" class="leaderboard__picture">
             <span class="leaderboard__name">{{ item.user_name }}</span>
             <span class="leaderboard__value"> {{ item.viewer_count }}<span>B</span></span>
-          </article>
+            </article>
+            </a>
+          </div>
         </main>
       </article>
     </div>
@@ -77,7 +81,6 @@ export default {
       retrieveAll: function(listTemp){
         let mylist = []
         listTemp.then(data => {
-          console.log(data);
           mylist = data;
         })
         .then(() =>{
@@ -87,8 +90,6 @@ export default {
               for(let key in data){
                 for(let i=0; i<this.listStreamer.length; i++){
                   if(data[key].ida === this.listStreamer[i].id){
-                    console.log(this.listStreamer[i])
-                    console.log(data[key].image)
                     this.listStreamer[i].image = data[key].image;
                   }
                 }
@@ -278,6 +279,10 @@ p{
     padding: 8px 8px 12px;
     display: grid;
     row-gap: 4px;
+
+    a{
+      text-decoration: none;
+    }
   }
   
   &__profile {
