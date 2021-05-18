@@ -1,12 +1,15 @@
 <template>
   <div class="moves">
     <h1>List of Moves</h1>
-    <table>
-        <tr v-for="item in listMoves" :key="item.id">
-            <td>{{item.name}}</td>
-            <td><a :href="item.videoLink" target="_blank">Link</a></td>
-        </tr>
-    </table>
+    <div class="glob">
+      <div class="card" v-for="item in listMoves" :key="item.id">
+        <iframe :src="item.videoLink" frameborder="0" allowfullscreen style="height:200px;width:100%"></iframe>
+        <div class="container">
+          <h4><b>{{item.name}}</b></h4>
+          <p>{{item.name}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,37 +25,56 @@ export default {
   },
   // Fetches posts when the component is created.
   created() {
-      //test sur une api random
     axios.get(`http://localhost:3000/moves`)
     .then(response => {
       // JSON responses are automatically parsed.
       this.listMoves = response.data
+    }).then(()=>{
+      for(let i=0; i<this.listMoves.length; i++){
+        this.listMoves[i].videoLink = this.listMoves[i].videoLink.replace("watch?v=", "embed/")
+      }
     })
     .catch(e => {
       this.errors.push(e)
     })
   }
 }
+
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-table{
-    width: 75%;
-    margin: 50px auto;
-    border-collapse: collapse;
+.glob{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: start;
+}
 
-    & tr:nth-child(even){
-        background-color: #f2f2f2;
-    }
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  width: 600px;
+  flex: 0 0 400px;
+  margin: 10px;
+}
 
-    & tr:hover {background-color: #ddd;}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
-    & td{
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+iframe {
+  border-radius: 5px 5px 0 0;
 }
 
 </style>

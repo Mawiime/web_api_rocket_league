@@ -84,6 +84,7 @@ export default {
           mylist = data;
         })
         .then(() =>{
+          console.log("+1");
           for(let i =0; i<mylist.length; i++){
             let newlist = this.retrievePics(mylist[i].id);
             newlist.then(data => {
@@ -207,14 +208,6 @@ p{
 .content .textBox p{
   color: #333;
   margin-top: 30px;
-}
-
-.content .list{
-  width: 600px;
-  padding-left: 20%;
-  margin-top: 50px;
-  display: block;
-  margin: 50px auto;
 }
 
 .leaderboard {
