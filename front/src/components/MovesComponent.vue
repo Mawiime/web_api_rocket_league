@@ -3,11 +3,13 @@
     <h1>List of Moves</h1>
     <div class="glob">
       <div class="card" v-for="item in listMoves" :key="item.id">
+        <button id="cross" v-on:click="deleteMove(item.id)"></button>
         <iframe :src="item.videoLink" frameborder="0" allowfullscreen style="height:200px;width:100%"></iframe>
         <div class="container">
           <h4><b>{{item.name}}</b></h4>
           <p>{{item.name}}</p>
-          <input type="button" @click="deleteMove(item.id)" id="cross" value="X"/>
+          <!--<input type="button" @click="deleteMove(item.id)" id="cross" value="X"/>-->
+          
         </div>
       </div>
     </div>
@@ -47,7 +49,7 @@ export default {
       .catch((err) => {
         console.log(err)
       })
-    }
+    },
   },
   // Fetches posts when the component is created.
   mounted() {
@@ -74,6 +76,7 @@ export default {
   width: 600px;
   flex: 0 0 400px;
   margin: 10px;
+  position: relative;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -90,12 +93,38 @@ iframe {
   border-radius: 5px 5px 0 0;
 }
 
-#cross{
-  color : red;
-  text-decoration: none;
-  border : none;
-  font-size : 150%;
-  cursor : pointer;
+#cross {
+  position: absolute;
+  height: 25px;
+  opacity: 0.9;
+  background: #fff;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  margin: auto auto;
+  padding: 0;
+  width: 25px;
+  z-index: 100;
+  cursor: pointer;
+  right: -5px;
+  top: -5px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+}
+#cross:hover {
+  opacity: 1;
+}
+#cross:before, #cross:after {
+  position: absolute;
+  top: 0;
+  content: ' ';
+  height: 22px;
+  width: 2px;
+  background-color: var(--main-color);
+}
+#cross:before {
+  transform: rotate(45deg);
+}
+#cross:after {
+  transform: rotate(-45deg);
 }
 
 </style>
