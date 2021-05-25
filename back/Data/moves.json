@@ -1,10 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Musty flick",
-        "videoLink": "https://www.youtube.com/watch?v=jVzlmApbD8M"
-    },
-    {
         "id": 2,
         "name": "Breezy flick",
         "videoLink": "https://www.youtube.com/watch?v=IVQMBhkq1VQ"
@@ -23,10 +18,5 @@
         "id": 5,
         "name": "Pogo",
         "videoLink": "https://www.youtube.com/watch?v=iO6qSoT5eQs"
-    },
-    {
-        "name": "test",
-        "videoLink": "test",
-        "id": 6
     }
 ]

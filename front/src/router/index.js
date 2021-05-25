@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/moves',
@@ -24,6 +23,16 @@ const routes = [
     path: '/twitch',
     name: 'Twitch',
     component: () => import('../views/Twitch.vue')
+  },
+  {
+    path: '/addmove',
+    name : 'AddMove',
+    component: () => import('../views/AddMove.vue')
+  },
+  {
+    path: '/additem',
+    name: 'AddItem',
+    component: () => import('../views/AddItem.vue')
   }
 ]
 

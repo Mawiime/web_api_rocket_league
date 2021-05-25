@@ -7,6 +7,7 @@
         <div class="container">
           <h4><b>{{item.name}}</b></h4>
           <p>{{item.name}}</p>
+          <input type="button" @click="deleteMove(item.id)" id="cross" value="X"/>
         </div>
       </div>
     </div>
@@ -23,24 +24,36 @@ export default {
             errors : []
         }
   },
+  methods:{
+    getMovesData(){
+      axios.get(`http://localhost:3000/moves`)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.listMoves = response.data
+      }).then(()=>{
+        for(let i=0; i<this.listMoves.length; i++){
+          this.listMoves[i].videoLink = this.listMoves[i].videoLink.replace("watch?v=", "embed/")
+        }
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+    },
+    deleteMove(id){
+      axios.delete('http://localhost:3000/moves/'+id)
+      .then(() => {
+        window.location.reload()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
+  },
   // Fetches posts when the component is created.
-  created() {
-    axios.get(`http://localhost:3000/moves`)
-    .then(response => {
-      // JSON responses are automatically parsed.
-      this.listMoves = response.data
-    }).then(()=>{
-      for(let i=0; i<this.listMoves.length; i++){
-        this.listMoves[i].videoLink = this.listMoves[i].videoLink.replace("watch?v=", "embed/")
-      }
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+  mounted() {
+    this.getMovesData()
   }
 }
-
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -50,7 +63,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .card {
@@ -75,6 +88,14 @@ export default {
 
 iframe {
   border-radius: 5px 5px 0 0;
+}
+
+#cross{
+  color : red;
+  text-decoration: none;
+  border : none;
+  font-size : 150%;
+  cursor : pointer;
 }
 
 </style>
