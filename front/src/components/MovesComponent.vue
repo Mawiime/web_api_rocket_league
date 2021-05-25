@@ -95,30 +95,34 @@ iframe {
 
 #cross {
   position: absolute;
-  height: 25px;
+  height: 40px;
   opacity: 0.9;
-  background: #fff;
-  border: 2px solid var(--main-color);
+  background: #333;
+  border: 2px solid #aaa;
   border-radius: 50%;
   margin: auto auto;
-  padding: 0;
-  width: 25px;
+  padding: 5px;
+  width: 40px;
   z-index: 100;
   cursor: pointer;
-  right: -5px;
-  top: -5px;
+  right: -10px;
+  top: -15px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  line-height: 40px;
 }
 #cross:hover {
   opacity: 1;
+  background-color: black;
 }
 #cross:before, #cross:after {
   position: absolute;
-  top: 0;
-  content: ' ';
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  content: '';
   height: 22px;
   width: 2px;
-  background-color: var(--main-color);
+  background-color: #aaa;
 }
 #cross:before {
   transform: rotate(45deg);

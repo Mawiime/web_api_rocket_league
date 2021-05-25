@@ -9,11 +9,15 @@
           <router-link to="/moves">Moves</router-link>
           <ul class="under_menu">
             <li><router-link to="/addmove">Add new move</router-link></li>
+            <li><router-link to="/addmove">Add new move</router-link></li>
+            <li><router-link to="/addmove">Add new move</router-link></li>
           </ul>
         </li>
         <li>
           <router-link to="/items">Items</router-link>
           <ul class="under_menu">
+            <li><router-link to="/additem">Add new item</router-link></li>
+            <li><router-link to="/additem">Add new item</router-link></li>
             <li><router-link to="/additem">Add new item</router-link></li>
           </ul>
         </li>
@@ -126,7 +130,6 @@ header ul li a{
     display: inline-block;
     color: #333;
     font-weight: 400;
-    margin-left: 40px;
     text-decoration: none;
 
     &.router-link-exact-active {
@@ -151,23 +154,61 @@ h1{
 }
 
 .under_menu{
-  display: none;
-  box-shadow: 0px 1px 2px #CCC;
+  display: block;
+  box-shadow: 0px 1px 2px #aaa;
   z-index : 1000;
   position : absolute;
+  margin-top: 3px;
+  top: -10000%;
+  transition: top 0.2s step-end;
+  padding: 3px;
+  background: rgba(55,55,55,0.8);
+  opacity: 0.5;
+  border-radius: 5px;
 }
 
 ul li:hover .under_menu{
-  display : block;
+  //display : block;
+  top: 80%;
+  transition: none;
+}
+
+ul li:hover .under_menu::before{
+  content: '';
+  position: absolute;
+  background: #999;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg); 
+  top: -6px;
+  right: 55px;
+  z-index: -1;
 }
 
 .under_menu li {
   float : none;
   text-align: center;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 5px;
+  a{
+    margin: 0;
+    padding: 8px 12px;
+  }
+}
+
+.under_menu li:not(:first-child){
+  border-top: 1px solid #bbb;
 }
 
 .under_menu li:hover{
   background-color: var(--main-color);
+  color: #fff;
+  opacity: 0.9;
+}
+
+.under_menu li:hover a{
+  color: #fff !important;
 }
 
 </style>
