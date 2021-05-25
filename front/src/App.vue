@@ -5,11 +5,19 @@
       <a href="/" class="logo"><img src="./assets/logo_rl.jpg" class="logo"></a>
       <ul id="nav">
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/moves">Moves</router-link></li>
-        <li><router-link to="/items">Items</router-link></li>
+        <li>
+          <router-link to="/moves">Moves</router-link>
+          <ul class="under_menu">
+            <li><router-link to="/addmove">Add new move</router-link></li>
+          </ul>
+        </li>
+        <li>
+          <router-link to="/items">Items</router-link>
+          <ul class="under_menu">
+            <li><router-link to="/additem">Add new item</router-link></li>
+          </ul>
+        </li>
         <li><router-link to="/twitch">Twitch</router-link></li>
-        <li><router-link to="/addmove">Add new move</router-link></li>
-        <li><router-link to="/additem">Add new item</router-link></li>
       </ul>
     </header>
     <router-view/>
@@ -141,4 +149,25 @@ h1{
   margin: 20px auto 70px auto !important;
   color: #333;
 }
+
+.under_menu{
+  display: none;
+  box-shadow: 0px 1px 2px #CCC;
+  z-index : 1000;
+  position : absolute;
+}
+
+ul li:hover .under_menu{
+  display : block;
+}
+
+.under_menu li {
+  float : none;
+  text-align: center;
+}
+
+.under_menu li:hover{
+  background-color: var(--main-color);
+}
+
 </style>
