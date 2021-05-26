@@ -17,10 +17,9 @@
   </div>
 
   <ul class="sci">
-      <li><a href="#"><img src="../assets/facebook.png" alt=""></a></li>
-      <li><a href="#"><img src="../assets/twitter.png" alt=""></a></li>
-      <li><a href="#"><img src="../assets/instagram.png" alt=""></a></li>
       <li><a href="https://github.com/Mawiime/web_api_rocket_league" target="_blank"><img src="../assets/github.png" alt=""></a></li>
+      <li><a  href="https://www.twitch.tv/directory/game/Rocket%20League" target="_blank"><img src="../assets/twitch.png" alt=""></a></li>
+
   </ul>
 </div>
 </template>
@@ -115,6 +114,7 @@ export default {
     transform: scale(0.6);
     filter: invert(1);
 }
+
 
 .circle{
     position: absolute;
