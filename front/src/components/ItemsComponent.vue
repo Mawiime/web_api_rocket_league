@@ -4,20 +4,14 @@
 
     <div class="glob">
       <div class="card" v-for="item in listItems" :key="item.id">
-        <img :src="require(`@/assets/${item.itemImage}`)" :alt="item.itemName" style="width:100%">
+        <button id="cross" v-on:click="deleteItem(item.id)"></button>
+        <img :src="item.itemImage" :alt="item.itemName" style="width:100%">
         <div class="container">
           <h4><b>{{item.itemType}}</b></h4>
           <p>{{item.itemName}}</p>
         </div>
       </div>
 
-      <div class="card" v-for="item in listItems" :key="item.id">
-        <img :src="require(`@/assets/${item.itemImage}`)" :alt="item.itemName" style="width:100%">
-        <div class="container">
-          <h4><b>{{item.itemType}}</b></h4>
-          <p>{{item.itemName}}</p>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -34,6 +28,17 @@ export default {
         }
   },
   // Fetches posts when the component is created.
+  methods:{
+    deleteItem(id){
+      axios.delete('http://localhost:3000/items/'+id)
+      .then(() => {
+        window.location.reload()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
+  },
   created() {
     console.log(this.$route)
       //test sur une api random
@@ -46,6 +51,7 @@ export default {
       this.errors.push(e)
     })
   }
+  
 }
 </script>
 
@@ -71,6 +77,7 @@ h1{
   width: 200px;
   flex: 0 0 200px;
   margin: 10px;
+  position: relative;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -85,6 +92,44 @@ h1{
 
 img {
   border-radius: 5px 5px 0 0;
+}
+
+#cross {
+  position: absolute;
+  height: 40px;
+  opacity: 0.9;
+  background: #333;
+  border: 2px solid #aaa;
+  border-radius: 50%;
+  margin: auto auto;
+  padding: 5px;
+  width: 40px;
+  z-index: 100;
+  cursor: pointer;
+  right: -10px;
+  top: -15px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  line-height: 40px;
+}
+#cross:hover {
+  opacity: 1;
+  background-color: black;
+}
+#cross:before, #cross:after {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  content: '';
+  height: 22px;
+  width: 2px;
+  background-color: #aaa;
+}
+#cross:before {
+  transform: rotate(45deg);
+}
+#cross:after {
+  transform: rotate(-45deg);
 }
 
 </style>

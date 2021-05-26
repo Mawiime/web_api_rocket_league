@@ -9,15 +9,11 @@
           <router-link to="/moves">Moves</router-link>
           <ul class="under_menu">
             <li><router-link to="/addmove">Add new move</router-link></li>
-            <li><router-link to="/addmove">Add new move</router-link></li>
-            <li><router-link to="/addmove">Add new move</router-link></li>
           </ul>
         </li>
         <li>
           <router-link to="/items">Items</router-link>
           <ul class="under_menu">
-            <li><router-link to="/additem">Add new item</router-link></li>
-            <li><router-link to="/additem">Add new item</router-link></li>
             <li><router-link to="/additem">Add new item</router-link></li>
           </ul>
         </li>

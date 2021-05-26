@@ -3,7 +3,7 @@
     <h1>Add new item</h1>
         <input type="text" v-model="itemName"/>
         <input type="text" v-model="itemType"/>
-        <div > pas oublie image loule </div>
+        <input type="text" v-model="itemImage"/>
 
         <input type="button" @click="postItem" value="Post item"/>
   </div>
@@ -16,14 +16,16 @@ export default {
   data() {
         return {
             itemName : null,
-            itemType : null
+            itemType : null,
+            itemImage : null
         }
   },
   methods: {
       postItem(){
           const data = {
               itemName : this.itemName,
-              itemType : this.link
+              itemType : this.itemType,
+              itemImage : this.itemImage
           }
 
           axios.post('http://localhost:3000/items', data)

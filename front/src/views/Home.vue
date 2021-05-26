@@ -20,6 +20,7 @@
       <li><a href="#"><img src="../assets/facebook.png" alt=""></a></li>
       <li><a href="#"><img src="../assets/twitter.png" alt=""></a></li>
       <li><a href="#"><img src="../assets/instagram.png" alt=""></a></li>
+      <li><a href="https://github.com/Mawiime/web_api_rocket_league" target="_blank"><img src="../assets/github.png" alt=""></a></li>
   </ul>
 </div>
 </template>

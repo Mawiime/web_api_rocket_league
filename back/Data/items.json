@@ -3,12 +3,18 @@
         "id": 1,
         "itemName": "Octane",
         "itemType": "body",
-        "itemImage": "octaneItem.png"
+        "itemImage": "https://img.rl.insider.gg/itemPics/large/octane.white.d07d.jpg"
     },
     {
         "itemName": "Fennec",
         "itemType": "body",
-        "itemImage": "fennec.png",
+        "itemImage": "https://img.rl.insider.gg/itemPics/large/fennec.bb8b.jpg",
         "id": 2
+    },
+    {
+        "itemName": "Cloche",
+        "itemType": "hat",
+        "itemImage": "https://img.rl.insider.gg/itemPics/large/bell.341f.jpg",
+        "id": 3
     }
 ]
