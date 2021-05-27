@@ -1,6 +1,7 @@
 const express = require('express')
 const movesController = require('./Controller/movesController')
 const itemsController = require('./Controller/itemsController')
+const workshopController = require('./Controller/workshopController')
 const router = express.Router()
 
 router.get('/moves', movesController.getMoves)
@@ -14,5 +15,11 @@ router.get('/items/:id', itemsController.getItem)
 router.post('/items', itemsController.createItem)
 router.put('/items/:id', itemsController.updateItem)
 router.delete('/items/:id',itemsController.removeItem)
+
+router.get('/workshop', workshopController.getMaps)
+router.get('/workshop/:id', workshopController.getMap)
+router.post('/workshop', workshopController.createMap)
+router.put('/workshop/:id', workshopController.updateMap)
+router.delete('/workshop/:id',workshopController.removeMap)
 
 module.exports = router

@@ -17,6 +17,11 @@
             <li><router-link to="/additem">Add new item</router-link></li>
           </ul>
         </li>
+        <li><router-link to="/workshop">Workshop</router-link>
+          <ul class="under_menu">
+            <li><router-link to="/addworkshop">Add new map</router-link></li>
+          </ul>
+        </li>
         <li><router-link to="/twitch">Twitch</router-link></li>
       </ul>
     </header>

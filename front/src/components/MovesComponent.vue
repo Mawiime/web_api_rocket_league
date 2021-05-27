@@ -8,7 +8,6 @@
         <div class="container">
           <h4><b>{{item.name}}</b></h4>
           <p>{{item.name}}</p>
-          <!--<input type="button" @click="deleteMove(item.id)" id="cross" value="X"/>-->
           
         </div>
       </div>

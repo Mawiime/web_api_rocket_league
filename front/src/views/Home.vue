@@ -17,8 +17,10 @@
   </div>
 
   <ul class="sci">
-      <li><a href="https://github.com/Mawiime/web_api_rocket_league" target="_blank"><img src="../assets/github.png" alt=""></a></li>
-      <li><a  href="https://www.twitch.tv/directory/game/Rocket%20League" target="_blank"><img src="../assets/twitch.png" alt=""></a></li>
+        <li><a href="https://github.com/Mawiime/web_api_rocket_league" target="_blank"><img src="../assets/github.png" alt=""></a></li>
+        <li><a  href="https://www.twitch.tv/directory/game/Rocket%20League" target="_blank"><img src="../assets/twitch.png" alt=""></a></li>
+        <li><a  href="https://steamcommunity.com/workshop/browse/?appid=252950&browsesort=trend&section=readytouseitems" target="_blank"><img src="../assets/steam.png" alt=""></a></li>
+
 
   </ul>
 </div>
