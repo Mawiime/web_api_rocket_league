@@ -7,13 +7,21 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "keywords": [
+    "vue-material",
+    "material-design",
+    "vue"
+  ],
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue-material": "^1.0.0-beta-15",
+    "vue-router": "^3.2.0",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@types/vuelidate": "^0.7.14",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.12",

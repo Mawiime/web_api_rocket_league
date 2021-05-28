@@ -2,6 +2,8 @@
   <div id="app">
     <section>
     <header>
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
+ 
       <a href="/" class="logo"><img src="./assets/logo_rl.jpg" class="logo"></a>
       <ul id="nav">
         <li><router-link to="/">Home</router-link></li>
@@ -145,6 +147,7 @@ header ul li a{
 h1{
   text-align: center;
   font-size: 50px;
+  padding-bottom: 20px;
   border-bottom: 5px solid var(--main-color);
   border-radius: 5px;
   display: block;
