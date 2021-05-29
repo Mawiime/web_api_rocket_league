@@ -16,5 +16,17 @@
         "itemType": "hat",
         "itemImage": "https://img.rl.insider.gg/itemPics/large/bell.341f.jpg",
         "id": 3
+    },
+    {
+        "itemName": "zomba",
+        "itemType": "Wheel",
+        "itemImage": "https://img.rl.insider.gg/itemPics/large/zomba.f02c.jpg",
+        "id": 8
+    },
+    {
+        "itemName": "zomba2",
+        "itemType": "wheel",
+        "itemImage": "https://img.rl.insider.gg/itemPics/large/zomba.f02c.jpg",
+        "id": 9
     }
 ]

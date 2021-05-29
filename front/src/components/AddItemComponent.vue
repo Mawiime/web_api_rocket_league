@@ -1,56 +1,146 @@
 <template>
   <div class="addItem">
     <h1>Add new item</h1>
-        <ul v-if="error" class="errors">
-          <li v-for="item in logs" :key="item">{{ item }}</li>
-        </ul>
-        <input type="text" v-model="itemName" placeholder="Item name"/>
-        <input type="text" v-model="itemType" placeholder="Item type"/>
-        <input type="text" v-model="itemImage" placeholder="Item link image"/>
+       <div class="card-item">
+      <form novalidate class="md-layout" @submit.prevent="validateItem">
+        <md-card class="md-layout-item md-size-100 md-small-size-100">
+          <md-card-header>
+            <div class="md-title">Moves</div>
+          </md-card-header>
 
-        <input type="button" @click="postItem" value="Post item"/>
+          <md-card-content>
+            <div class="md-layout md-gutter">
+              <div class="md-layout-item md-small-size-100">
+                <md-field :class="getValidationClass('ItemName')">
+                  <label for="item-name">Item name</label>
+                  <md-input name="item-name" id="item-name" autocomplete="given-name" v-model="form.ItemName" :disabled="sending" md-counter="20" />
+                  <span class="md-error" v-if="!$v.form.ItemName.required">The name is required</span>
+                  <span class="md-error" v-else-if="!$v.form.ItemName.maxLength">Too long</span>
+                </md-field>
+              <div class="md-layout-item md-small-size-100">
+                <md-field :class="getValidationClass('ItemType')">
+                  <label for="item-type">Item type</label>
+                  <md-input name="item-type" id="item-type" autocomplete="type-name" v-model="form.ItemType" :disabled="sending" md-counter="20" />
+                  <span class="md-error" v-if="!$v.form.ItemType.required">The type is required</span>
+                  <span class="md-error" v-else-if="!$v.form.ItemType.maxLength">Too long</span>
+                </md-field>
+              </div>
+              <div class="md-layout-item md-small-size-100">
+                <md-field :class="getValidationClass('ItemLink')">
+                  <label for="item-link">item image</label>
+                  <md-input name="item-link" id="item-link" autocomplete="family-name" v-model="form.ItemLink" :disabled="sending" />
+                  <span class="md-error" v-if="!$v.form.ItemLink.required">The link is required</span>
+                  <span class="md-error" v-else-if="!$v.form.ItemLink.minlength">Invalid link</span>
+                </md-field>
+              </div>
+            </div>
+          </div>  
+          </md-card-content>
+
+          <md-progress-bar md-mode="indeterminate" v-if="sending" />
+
+          <md-card-actions>
+            <md-button type="submit" class="md-primary" :disabled="sending">Create move</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-snackbar :md-active="itemSaved">The move {{ lastItem }} was saved with success!</md-snackbar>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-export default {
-  name: 'AddItemComponent',
-  data() {
-        return {
-            itemName : null,
-            itemType : null,
-            itemImage : null,
-            logs: [],
-			      error: false
-        };
-  },
-  methods: {
-      postItem(){
-          this.logs = [];
-          if((this.itemName == null) || (this.itemType == null) || (this.itemImage == null)){
-            this.error = true;
-            this.logs.push("Au moins un champs n'est pas renseigné");
-          }
-          else{
-            this.error = false;
-            const data = {
-                itemName : this.itemName,
-                itemType : this.itemType,
-                itemImage : this.itemImage
-            }
+import axios from "axios";
+import { validationMixin } from 'vuelidate';
+import {
+    required,
+    maxLength
+  } from 'vuelidate/lib/validators'
 
-            axios.post('http://localhost:3000/items', data)
-            .then((res) => {
-                  console.log(`Status: ${res.status}`);
-                  console.log('Body: ', res.data);
-            }).catch((err) => {
-                  console.error(err);
-            })
-          }
+export default {
+  name: "AddMoveComponent",
+  mixins: [validationMixin],
+  data() {
+    return {
+      form: {
+        ItemName: null,
+        ItemType: null,
+        ItemLink: null
+      },
+      itemSaved: false,
+      sending: false,
+      lastItem: null
+    };
+  },
+  validations: {
+      form: {
+        ItemName: {
+          required,
+          maxLength: maxLength(20)
+        },
+        ItemLink: {
+          required
+        },
+        ItemType: {
+          required,
+          maxLength: maxLength(20)
+        }
       }
-  }
-}
+    },
+  methods: {
+    getValidationClass (fieldName) {
+      const field = this.$v.form[fieldName]
+
+      if (field) {
+        return {
+          'md-invalid': field.$invalid && field.$dirty
+        }
+      }
+    },
+    clearForm () {
+        this.$v.$reset()
+        this.form.ItemName = null
+        this.form.ItemType = null
+        this.form.ItemLink = null
+        window.setTimeout(() => {
+          this.itemSaved = false  
+        }, 1500)
+      },
+    saveItem () {
+        this.sending = true
+        // Instead of this timeout, here you can call your API
+
+        const data = {
+        itemName: this.form.ItemName,
+        itemType: this.form.ItemType,
+        itemImage: this.form.ItemLink
+				};
+        console.log(this.sending)
+        window.setTimeout(() => {
+          this.itemSaved = true
+          this.sending = false
+          this.clearForm()
+        }, 1500)
+				axios
+					.post("http://localhost:3000/items", data)
+					.then((res) => {
+						console.log(`Status: ${res.status}`);
+						console.log("Body: ", res.data);
+					})
+					.catch((err) => {
+						console.error(err);
+					});
+      },
+    validateItem () {
+        this.$v.$touch()
+
+        if (!this.$v.$invalid) {
+          this.saveItem()
+        }
+      },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -61,17 +151,25 @@ h1 {
   width: 500px;
 }
 
-input[type="text"] {
-  border: none;
-  width: 100%;
-  height: 100%;
-  padding: 10px 20px;
-  background: #333;
-  border-radius: 3px;
-  box-shadow: 0px 8px 15px rgba(#4b4848, 0.1);
-  margin: 20px 0;
-  color: white;
+////// POUR MATERIAL //////////
+.card-item{
+
+  margin : 0 auto;
+  position : center;
 }
+
+.md-progress-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  input[type="text"]{
+  background-color: #ebeef2;
+  padding-left: 5px;
+}
+//////////////////
 
 input[type="text"]:focus {
   box-shadow: 0px 20px 30px rgba(#4b4848, 0.3);
