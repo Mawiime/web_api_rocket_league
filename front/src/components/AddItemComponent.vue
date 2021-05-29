@@ -1,40 +1,40 @@
 <template>
   <div class="addItem">
     <h1>Add new item</h1>
-       <div class="card-item">
-      <form novalidate class="md-layout" @submit.prevent="validateItem">
-        <md-card class="md-layout-item md-size-100 md-small-size-100">
-          <md-card-header>
-            <div class="md-title">Moves</div>
-          </md-card-header>
+      <div class="card-item">
+        <form novalidate class="md-layout" @submit.prevent="validateItem">
+          <md-card class="md-layout-item md-size-100 md-small-size-100">
+            <md-card-header>
+              <div class="md-title">Items</div>
+            </md-card-header>
 
-          <md-card-content>
-            <div class="md-layout md-gutter">
-              <div class="md-layout-item md-small-size-100">
-                <md-field :class="getValidationClass('ItemName')">
-                  <label for="item-name">Item name</label>
-                  <md-input name="item-name" id="item-name" autocomplete="given-name" v-model="form.ItemName" :disabled="sending" md-counter="20" />
-                  <span class="md-error" v-if="!$v.form.ItemName.required">The name is required</span>
-                  <span class="md-error" v-else-if="!$v.form.ItemName.maxLength">Too long</span>
-                </md-field>
-              <div class="md-layout-item md-small-size-100">
-                <md-field :class="getValidationClass('ItemType')">
-                  <label for="item-type">Item type</label>
-                  <md-input name="item-type" id="item-type" autocomplete="type-name" v-model="form.ItemType" :disabled="sending" md-counter="20" />
-                  <span class="md-error" v-if="!$v.form.ItemType.required">The type is required</span>
-                  <span class="md-error" v-else-if="!$v.form.ItemType.maxLength">Too long</span>
-                </md-field>
+            <md-card-content>
+              <div class="md-layout md-gutter">
+                <div class="md-layout-item md-small-size-100">
+                  <md-field :class="getValidationClass('ItemName')">
+                    <label for="item-name">Item name</label>
+                    <md-input name="item-name" id="item-name" autocomplete="given-name" v-model="form.ItemName" :disabled="sending" md-counter="20" />
+                    <span class="md-error" v-if="!$v.form.ItemName.required">The name is required</span>
+                    <span class="md-error" v-else-if="!$v.form.ItemName.maxLength">Too long</span>
+                  </md-field>
+                <div class="md-layout-item md-small-size-100">
+                  <md-field :class="getValidationClass('ItemType')">
+                    <label for="item-type">Item type</label>
+                    <md-input name="item-type" id="item-type" autocomplete="type-name" v-model="form.ItemType" :disabled="sending" md-counter="20" />
+                    <span class="md-error" v-if="!$v.form.ItemType.required">The type is required</span>
+                    <span class="md-error" v-else-if="!$v.form.ItemType.maxLength">Too long</span>
+                  </md-field>
+                </div>
+                <div class="md-layout-item md-small-size-100">
+                  <md-field :class="getValidationClass('ItemLink')">
+                    <label for="item-link">item image</label>
+                    <md-input name="item-link" id="item-link" autocomplete="family-name" v-model="form.ItemLink" :disabled="sending" />
+                    <span class="md-error" v-if="!$v.form.ItemLink.required">The link is required</span>
+                    <span class="md-error" v-else-if="!$v.form.ItemLink.minlength">Invalid link</span>
+                  </md-field>
+                </div>
               </div>
-              <div class="md-layout-item md-small-size-100">
-                <md-field :class="getValidationClass('ItemLink')">
-                  <label for="item-link">item image</label>
-                  <md-input name="item-link" id="item-link" autocomplete="family-name" v-model="form.ItemLink" :disabled="sending" />
-                  <span class="md-error" v-if="!$v.form.ItemLink.required">The link is required</span>
-                  <span class="md-error" v-else-if="!$v.form.ItemLink.minlength">Invalid link</span>
-                </md-field>
-              </div>
-            </div>
-          </div>  
+            </div>  
           </md-card-content>
 
           <md-progress-bar md-mode="indeterminate" v-if="sending" />
@@ -44,9 +44,9 @@
           </md-card-actions>
         </md-card>
 
-        <md-snackbar :md-active="itemSaved">The move {{ lastItem }} was saved with success!</md-snackbar>
-      </form>
-    </div>
+          <md-snackbar :md-active="itemSaved">The move {{ lastItem }} was saved with success!</md-snackbar>
+        </form>
+      </div>
   </div>
 </template>
 

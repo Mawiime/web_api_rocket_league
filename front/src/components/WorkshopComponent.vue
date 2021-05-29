@@ -1,8 +1,6 @@
 <template>
   <div class="workshops">
     <h1>List of Maps</h1>
-
-
     <div class="wrap-table100">
 				<div class="table100">
 					<table>
@@ -21,14 +19,11 @@
 									<td class="column3"><a :href="item.link" target="_blank">telecharger la map</a></td>
                   <td class="column4"><button id="cross" v-on:click="deleteMap(item.id)"></button></td>
 								</tr>
-                
-								
 						</tbody>
 					</table>
 				</div>
 			</div>
   </div>
-
 </template>
 
 <script>
@@ -156,6 +151,10 @@ a:hover {
 
 /* ------------------------------------ */
 h1,h2,h3,h4,h5,h6 {margin: 0px;}
+
+h1{
+  padding-bottom: 20px;
+}
 
 p {margin: 0px;}
 

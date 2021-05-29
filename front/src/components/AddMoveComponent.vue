@@ -1,8 +1,6 @@
 <template>
-
   <div class="addMove">
     <h1>Add new move</h1>
-    
     <div class="card-move">
       <form novalidate class="md-layout" @submit.prevent="validateMove">
         <md-card class="md-layout-item md-size-100 md-small-size-100">
@@ -108,7 +106,6 @@ export default {
         name: this.form.MoveName,
         videoLink: this.form.MoveLink,
 				};
-        console.log(this.form.MoveName)
 
         window.setTimeout(() => {
           this.moveSaved = true
