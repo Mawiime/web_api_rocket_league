@@ -4,7 +4,7 @@
     <h1>Add new move</h1>
     
     <div class="card-move">
-      <form novalidate class="md-layout" @submit.prevent="validateUser">
+      <form novalidate class="md-layout" @submit.prevent="validateMove">
         <md-card class="md-layout-item md-size-100 md-small-size-100">
           <md-card-header>
             <div class="md-title">Moves</div>
@@ -13,20 +13,20 @@
           <md-card-content>
             <div class="md-layout md-gutter">
               <div class="md-layout-item md-small-size-100">
-                <md-field :class="getValidationClass('firstName')">
-                  <label for="first-name">Move Name</label>
-                  <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" md-counter="20" />
-                  <span class="md-error" v-if="!$v.form.firstName.required">The name is required</span>
-                  <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid name</span>
+                <md-field :class="getValidationClass('MoveName')">
+                  <label for="move-name">Move Name</label>
+                  <md-input name="move-name" id="move-name" autocomplete="given-name" v-model="form.MoveName" :disabled="sending" md-counter="20" />
+                  <span class="md-error" v-if="!$v.form.MoveName.required">The name is required</span>
+                  <span class="md-error" v-else-if="!$v.form.MoveName.maxLength">Too long</span>
                 </md-field>
               </div>
 
               <div class="md-layout-item md-small-size-100">
-                <md-field :class="getValidationClass('lastName')">
-                  <label for="last-name">Move link</label>
-                  <md-input name="last-name" id="last-name" autocomplete="family-name" v-model="form.lastName" :disabled="sending" />
-                  <span class="md-error" v-if="!$v.form.lastName.required">The link is required</span>
-                  <span class="md-error" v-else-if="!$v.form.lastName.minlength">Invalid link</span>
+                <md-field :class="getValidationClass('MoveLink')">
+                  <label for="move-link">Move link</label>
+                  <md-input name="move-link" id="move-link" autocomplete="family-name" v-model="form.MoveLink" :disabled="sending" />
+                  <span class="md-error" v-if="!$v.form.MoveLink.required">The link is required</span>
+                  <span class="md-error" v-else-if="!$v.form.MoveLink.minlength">Invalid link</span>
                 </md-field>
               </div>
             </div>  
@@ -39,7 +39,7 @@
           </md-card-actions>
         </md-card>
 
-        <md-snackbar :md-active="userSaved">The move {{ lastUser }} was saved with success!</md-snackbar>
+        <md-snackbar :md-active="moveSaved">The move {{ lastMove }} was saved with success!</md-snackbar>
       </form>
     </div>
 
@@ -62,24 +62,22 @@ export default {
   mixins: [validationMixin],
   data() {
     return {
-      moveName: null,
-      link: null,
       form: {
-        firstName: null,
-        lastName: null
+        MoveName: null,
+        MoveLink: null
       },
-      userSaved: false,
+      moveSaved: false,
       sending: false,
-      lastUser: null
+      lastMove: null
     };
   },
   validations: {
       form: {
-        firstName: {
+        MoveName: {
           required,
           maxLength: maxLength(20)
         },
-        lastName: {
+        MoveLink: {
           required
         }
       }
@@ -96,24 +94,24 @@ export default {
     },
     clearForm () {
         this.$v.$reset()
-        this.form.firstName = null
-        this.form.lastName = null
+        this.form.MoveName = null
+        this.form.MoveLink = null
         window.setTimeout(() => {
-          this.userSaved = false  
+          this.moveSaved = false  
         }, 1500)
       },
-    saveUser () {
+    saveMove () {
         this.sending = true
         // Instead of this timeout, here you can call your API
 
         const data = {
-        name: this.form.firstName,
-        videoLink: this.form.lastName,
+        name: this.form.MoveName,
+        videoLink: this.form.MoveLink,
 				};
-        console.log(this.form.firstName)
+        console.log(this.form.MoveName)
 
         window.setTimeout(() => {
-          this.userSaved = true
+          this.moveSaved = true
           this.sending = false
           this.clearForm()
         }, 1500)
@@ -131,11 +129,11 @@ export default {
 						console.error(err);
 					});
       },
-    validateUser () {
+    validateMove () {
         this.$v.$touch()
 
         if (!this.$v.$invalid) {
-          this.saveUser()
+          this.saveMove()
         }
       },
   },
