@@ -12,6 +12,7 @@
               <div class="md-layout md-gutter">
                 <div class="md-layout-item md-small-size-100">
                   <md-field :class="getValidationClass('WorkshopName')">
+                    <md-icon>badge</md-icon>
                     <label for="workshop-name">Map name</label>
                     <md-input name="workshop-name" id="workshop-name" autocomplete="given-name" v-model="form.WorkshopName" :disabled="sending" md-counter="20" />
                     <span class="md-error" v-if="!$v.form.WorkshopName.required">The name is required</span>
@@ -19,6 +20,7 @@
                   </md-field>
                 <div class="md-layout-item md-small-size-100">
                   <md-field :class="getValidationClass('WorkshopTag')">
+                    <md-icon>tag</md-icon>
                     <label for="workshop-tag">Map tag</label>
                     <md-input name="workshop-tag" id="workshop-tag" autocomplete="type-name" v-model="form.WorkshopTag" :disabled="sending" md-counter="20" />
                     <span class="md-error" v-if="!$v.form.WorkshopTag.required">The tag is required</span>
@@ -27,6 +29,7 @@
                 </div>
                 <div class="md-layout-item md-small-size-100">
                   <md-field :class="getValidationClass('WorkshopLink')">
+                    <md-icon>link</md-icon>
                     <label for="workshop-link">Map link</label>
                     <md-input name="workshop-link" id="workshop-link" autocomplete="family-name" v-model="form.WorkshopLink" :disabled="sending" />
                     <span class="md-error" v-if="!$v.form.WorkshopLink.required">The link is required</span>
@@ -40,7 +43,7 @@
           <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
           <md-card-actions>
-            <md-button type="submit" class="md-primary" :disabled="sending">Create move</md-button>
+            <md-button type="submit" class="md-primary" :disabled="sending">Create map</md-button>
           </md-card-actions>
         </md-card>
 

@@ -12,6 +12,7 @@
             <div class="md-layout md-gutter">
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('MoveName')">
+                  <md-icon>badge</md-icon>
                   <label for="move-name">Move Name</label>
                   <md-input name="move-name" id="move-name" autocomplete="given-name" v-model="form.MoveName" :disabled="sending" md-counter="20" />
                   <span class="md-error" v-if="!$v.form.MoveName.required">The name is required</span>
@@ -21,6 +22,7 @@
 
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('MoveLink')">
+                  <md-icon>link</md-icon>
                   <label for="move-link">Move link</label>
                   <md-input name="move-link" id="move-link" autocomplete="family-name" v-model="form.MoveLink" :disabled="sending" />
                   <span class="md-error" v-if="!$v.form.MoveLink.required">The link is required</span>

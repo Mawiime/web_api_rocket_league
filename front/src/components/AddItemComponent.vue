@@ -12,6 +12,7 @@
               <div class="md-layout md-gutter">
                 <div class="md-layout-item md-small-size-100">
                   <md-field :class="getValidationClass('ItemName')">
+                    <md-icon>badge</md-icon>
                     <label for="item-name">Item name</label>
                     <md-input name="item-name" id="item-name" autocomplete="given-name" v-model="form.ItemName" :disabled="sending" md-counter="20" />
                     <span class="md-error" v-if="!$v.form.ItemName.required">The name is required</span>
@@ -19,6 +20,7 @@
                   </md-field>
                 <div class="md-layout-item md-small-size-100">
                   <md-field :class="getValidationClass('ItemType')">
+                    <md-icon>tag</md-icon>
                     <label for="item-type">Item type</label>
                     <md-input name="item-type" id="item-type" autocomplete="type-name" v-model="form.ItemType" :disabled="sending" md-counter="20" />
                     <span class="md-error" v-if="!$v.form.ItemType.required">The type is required</span>
@@ -27,6 +29,7 @@
                 </div>
                 <div class="md-layout-item md-small-size-100">
                   <md-field :class="getValidationClass('ItemLink')">
+                    <md-icon>link</md-icon>
                     <label for="item-link">item image</label>
                     <md-input name="item-link" id="item-link" autocomplete="family-name" v-model="form.ItemLink" :disabled="sending" />
                     <span class="md-error" v-if="!$v.form.ItemLink.required">The link is required</span>
@@ -40,7 +43,7 @@
           <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
           <md-card-actions>
-            <md-button type="submit" class="md-primary" :disabled="sending">Create move</md-button>
+            <md-button type="submit" class="md-primary" :disabled="sending">Create item</md-button>
           </md-card-actions>
         </md-card>
 
