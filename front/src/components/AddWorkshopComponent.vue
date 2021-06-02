@@ -164,9 +164,9 @@ h1 {
     top: 0;
     right: 0;
     left: 0;
-  }
+}
 
-  input[type="text"]{
+input[type="text"]{
   background-color: #ebeef2;
   padding-left: 5px;
 }
@@ -174,33 +174,5 @@ h1 {
 input[type="text"]:focus {
   box-shadow: 0px 20px 30px rgba(#4b4848, 0.3);
   outline: none;
-}
-
-input[type="button"] {
-  background-color: var(--main-color);
-  width: 100%;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 10px 20px;
-  //text-transform: uppercase;
-  font-size: 16px;
-  margin: 40px 0;
-  cursor: pointer;
-  border-radius: 2px;
-  box-shadow: 0px 8px 15px rgba(#4b4848, 0.1);
-}
-
-input[type="button"]:hover {
-  opacity: 0.8;
-  box-shadow: 0px 20px 30px rgba(#4b4848, 0.3);
-}
-
-.errors{
-	background: #f8d7da;
-	color: #721c24;
-	padding: 8px 30px;
-	border-radius: 2px;
-	margin-bottom: 20px;
 }
 </style>

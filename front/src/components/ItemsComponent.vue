@@ -11,7 +11,6 @@
           <p>{{item.itemName}}</p>
         </div>
       </div>
-
     </div>
 
   </div>
