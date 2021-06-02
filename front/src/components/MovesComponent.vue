@@ -3,7 +3,7 @@
     <h1>List of Moves</h1>
     <div class="glob">
       <div class="card" v-for="item in listMoves" :key="item.id">
-        <button id="cross" v-on:click="deleteMove(item.id)"></button>
+        <button v-if="$store.state.admin" id="cross" v-on:click="deleteMove(item.id)"></button>
         <iframe :src="item.videoLink" frameborder="0" allowfullscreen style="height:200px;width:100%"></iframe>
         <div class="container">
           <h4><b>{{item.name}}</b></h4>
