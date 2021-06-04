@@ -1,8 +1,7 @@
 <template>
   <div class="items">
     <h1>List of Items</h1>
-
-    <div class="glob">
+    <sequential-entrance fromRight delay="300">
       <div class="card" v-for="item in listItems" :key="item.id">
         <button v-if="$store.state.admin" id="cross" v-on:click="deleteItem(item.id)"></button>
         <img :src="item.itemImage" :alt="item.itemName" style="width:100%">
@@ -11,7 +10,7 @@
           <p>{{item.itemName}}</p>
         </div>
       </div>
-    </div>
+    </sequential-entrance>
 
   </div>
 </template>
@@ -61,12 +60,13 @@ h1{
   margin-bottom: 25px;
 }
 
-.glob{
+.items > span {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-around;
 }
+
 
 .card {
   /* Add shadows to create the "card" effect */

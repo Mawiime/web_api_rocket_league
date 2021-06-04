@@ -1,6 +1,6 @@
 <template>
   <div class="home page">
-    <div class="circle"></div>
+    <div class="circle animated fadeIn"></div>
     <div class="content">
       <div class="textBox">
         <h2>Welcome, in our new<br /><span>Rocket League API !</span></h2>
@@ -137,5 +137,7 @@ export default {
   height: 100%;
   background-color: var(--main-color);
   clip-path: circle(600px at right 800px);
+  
 }
+
 </style>

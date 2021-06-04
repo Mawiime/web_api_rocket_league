@@ -1,17 +1,16 @@
 <template>
   <div class="moves">
     <h1>List of Moves</h1>
-    <div class="glob">
+    <sequential-entrance fromRight delay="300">
       <div class="card" v-for="item in listMoves" :key="item.id">
         <button v-if="$store.state.admin" id="cross" v-on:click="deleteMove(item.id)"></button>
         <iframe :src="item.videoLink" frameborder="0" allowfullscreen style="height:200px;width:100%"></iframe>
         <div class="container">
           <h4><b>{{item.name}}</b></h4>
           <p>{{item.name}}</p>
-          
         </div>
       </div>
-    </div>
+    </sequential-entrance>
   </div>
 </template>
 
@@ -60,11 +59,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-.glob{
+.moves > span {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 
 .card {

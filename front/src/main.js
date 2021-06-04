@@ -6,9 +6,12 @@ import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import store from './store'
 
+import SequentialEntrance from 'vue-sequential-entrance'
+import 'vue-sequential-entrance/vue-sequential-entrance.css'
 
 Vue.config.productionTip = false
 
+Vue.use(SequentialEntrance);
 Vue.use(VueMaterial)
 
 new Vue({
