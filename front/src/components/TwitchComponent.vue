@@ -1,14 +1,14 @@
 <template>
   <div class="twitch">
     <div class="content">
-      <div class="textBox">
+      <div class="textBox animated appear fadeIn">
         <h1>Streamer Twitch</h1>
         <p>List of streamers currently on Twitch on Rocket League order by the number of viewer.
           You can directly access the channel of a streamer of your choice by clicking on their name.
         </p>
       </div>
 
-      <article class="leaderboard">
+      <article class="leaderboard animated appear fadeIn">
         <div class="header">
 
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve" class="leaderboard__icon">
@@ -229,9 +229,9 @@ p{
     .leaderboard__title {
       position: absolute;
       z-index: 2;
-      top: 20%;
+      top: -8%;
       right: -125px;
-      transform: translateY(-50%);
+      transform: translateY(-64%);
       text-transform: uppercase;
       margin: 0;
       color: #fff;
@@ -244,6 +244,7 @@ p{
         font-size: 20px;
         font-weight: 700;
         letter-spacing: 3.5px;
+        padding-top: 100px;
       }
       
       &--bottom {
@@ -347,6 +348,11 @@ body {
 
 .leaderboard {
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, .4);
+}
+
+.textBox, .leaderboard{
+  animation-delay: 0.4s !important;
+  animation-duration: 1s !important;
 }
 
 </style>

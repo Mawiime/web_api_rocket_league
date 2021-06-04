@@ -2,7 +2,7 @@
   <div class="home page">
     <div class="circle animated fadeIn appear"></div>
     <div class="content">
-      <div class="textBox">
+      <div class="textBox animated fadeIn appear">
         <h2>Welcome, in our new<br /><span>Rocket League API !</span></h2>
         <p>
           This API will give you access to useful information such as items,
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <ul class="sci">
+    <ul class="sci animated fadeIn appear">
       <li>
         <a
           href="https://github.com/Mawiime/web_api_rocket_league"
@@ -144,6 +144,11 @@ export default {
 .imgBox{
   animation-delay: 1s !important;
   animation-duration: 1s !important;
+}
+
+.sci, .textBox{
+  animation-delay: 0.2s !important;
+  animation-duration: 0.5s !important;
 }
 
 </style>
