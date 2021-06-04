@@ -1,6 +1,6 @@
 <template>
   <div class="home page">
-    <div class="circle animated fadeIn"></div>
+    <div class="circle animated fadeIn appear"></div>
     <div class="content">
       <div class="textBox">
         <h2>Welcome, in our new<br /><span>Rocket League API !</span></h2>
@@ -13,7 +13,7 @@
         <!--<a href="#">Learn more</a>-->
       </div>
 
-      <div class="imgBox">
+      <div class="imgBox animated fadeIn appear">
         <img src="../assets/fond.png" class="illustration" />
       </div>
     </div>
@@ -137,7 +137,13 @@ export default {
   height: 100%;
   background-color: var(--main-color);
   clip-path: circle(600px at right 800px);
-  
+  animation-delay: 1s;
+  animation-duration: 1s;
+}
+
+.imgBox{
+  animation-delay: 1s !important;
+  animation-duration: 1s !important;
 }
 
 </style>
