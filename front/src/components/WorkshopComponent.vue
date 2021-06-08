@@ -17,7 +17,7 @@
 									<td class="column1">{{item.name}}</td>
 									<td class="column2">{{item.tag}}</td>
 									<td class="column3"><a :href="item.link" target="_blank">telecharger la map</a></td>
-                  <td class="column4"><md-button v-if="$store.state.admin" class="md-icon-button" v-on:click="deleteMap(item.id)"><md-icon >delete</md-icon></md-button></td>
+                  <td class="column4"><md-button v-if="$store.state.role=='admin'" class="md-icon-button" v-on:click="deleteMap(item.id)"><md-icon >delete</md-icon></md-button></td>
                   <!-- <button id="cross" v-on:click="deleteMap(item.id)"></button> -->
 								</tr>
 						</tbody>

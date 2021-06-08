@@ -2,6 +2,7 @@ const express = require('express')
 const movesController = require('./Controller/movesController')
 const itemsController = require('./Controller/itemsController')
 const workshopController = require('./Controller/workshopController')
+const usersController = require('./Controller/usersController')
 const router = express.Router()
 
 router.get('/moves', movesController.getMoves)
@@ -22,4 +23,6 @@ router.post('/workshop', workshopController.createMap)
 router.put('/workshop/:id', workshopController.updateMap)
 router.delete('/workshop/:id',workshopController.removeMap)
 
+
+router.get('/users/:name',usersController.getUser)
 module.exports = router

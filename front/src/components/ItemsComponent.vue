@@ -3,7 +3,7 @@
     <h1>List of Items</h1>
     <sequential-entrance fromRight delay="300">
       <div class="card" v-for="item in listItems" :key="item.id">
-        <button v-if="$store.state.admin" id="cross" v-on:click="deleteItem(item.id)"></button>
+        <button v-if="$store.state.role=='admin'" id="cross" v-on:click="deleteItem(item.id)"></button>
         <img :src="item.itemImage" :alt="item.itemName" style="width:100%">
         <div class="container">
           <h4><b>{{item.itemType}}</b></h4>
