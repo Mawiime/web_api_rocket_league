@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" id="test">
     <header>
       <a href="/" class="logo"
         ><img src="../assets/logo_rl.jpg" class="logo"
@@ -25,12 +25,14 @@
           </ul>
         </li>
         <li><router-link to="/twitch">Twitch</router-link></li>
-        <li><button v-if="$store.state.role!='admin' && $store.state.role!='member'" @click="afficherFormulaire()">Sign in</button></li>
-        <li><button v-if="$store.state.role=='admin' || $store.state.role=='member'" @click="disconnect()">Sign out</button></li>
+        <li><button class="sign" v-if="$store.state.role!='admin' && $store.state.role!='member'" @click="afficherFormulaire()">Sign in</button></li>
+        <li><button class="sign" v-if="$store.state.role=='admin' || $store.state.role=='member'" @click="disconnect()">Sign out</button></li>
       </ul>
     </header>
 
-    <div id="LoginForm" v-if="shown">
+    <div class="popup" v-if="shown" >
+      <div class="blocker"></div>
+    <div id="LoginForm" v-click-outside="hidePopup">
       <div class="card-user">
         <form novalidate class="md-layout" @submit.prevent="validateConnection">
           <md-card class="md-layout-item md-size-100 md-small-size-100">
@@ -92,12 +94,16 @@
         </form>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
+
+
+
 export default {
   name: "HeaderComponent",
   mixins: [validationMixin],
@@ -125,11 +131,22 @@ export default {
     },
   },
   methods: {
+    hidePopup(){
+      this.shown = false;
+      var blur = document.getElementById("routComp");
+      var header = document.querySelector("header");
+      blur.classList.toggle('active');
+      header.classList.toggle('active');
+    },
     disconnect(){
       this.$store.dispatch("toggle_disconnect")
     },
     afficherFormulaire() {
       this.shown = !this.shown;
+      var blur = document.getElementById("routComp");
+      var header = document.querySelector("header");
+      blur.classList.toggle('active');
+      header.classList.toggle('active');
     },
     getValidationClass(fieldName) {
       const field = this.$v.form[fieldName];
@@ -206,6 +223,12 @@ header {
   align-items: center;
 }
 
+header.active{
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+
 header .logo {
   position: relative;
   max-width: 80px;
@@ -219,9 +242,16 @@ header ul {
 
 header ul li {
   list-style: none;
+
+  .sign{
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 2px solid rgb(46, 135, 219);
+    cursor: pointer;
+  }
 }
 
-header ul li a {
+header ul li a, .sign {
   display: inline-block;
   color: #333;
   font-weight: 400;
@@ -308,14 +338,23 @@ ul li:hover .under_menu::before {
 ///////////////// FORMULAIRE CONNEXION/////////////
 
 div#LoginForm {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   padding: 10px;
-  position: absolute;
-  z-index: 1000;
-  top: 50%;
+  position: fixed;
+  z-index: 100000;
+  //top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 1;
+	animation-name: fadeTop;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-duration: 0.5s;
 }
+
+@keyframes fadeTop{ 
+  from {top: 30%;opacity: 0;}
+  to {top: 50%;opacity: 1;}
+}
+
+
 </style>

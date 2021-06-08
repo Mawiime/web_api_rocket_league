@@ -8,6 +8,9 @@ import store from './store'
 
 import SequentialEntrance from 'vue-sequential-entrance'
 import 'vue-sequential-entrance/vue-sequential-entrance.css'
+import vClickOutside from 'v-click-outside'
+ 
+Vue.use(vClickOutside)
 
 Vue.config.productionTip = false
 

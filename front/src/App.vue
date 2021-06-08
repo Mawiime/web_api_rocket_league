@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <section>
-    <HeaderComponent/>
+      <div id="headComp">
+        <HeaderComponent/>
+      </div>
+
+    <div id="routComp">
     <transition
       :delay = "200"
       mode="out-in"
@@ -11,6 +15,7 @@
     >
     <router-view class="view"/>
     </transition>
+    </div>  
     </section>
   </div>
 </template>
@@ -91,4 +96,18 @@ h1{
   color: #333;
 }
 
+#routComp.active{
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+  }
 </style>
