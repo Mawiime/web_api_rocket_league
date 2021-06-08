@@ -146,6 +146,7 @@ export default {
       this.form.password = null;
       window.setTimeout(() => {
         this.connected = false;
+        this.afficherFormulaire();
       }, 1500);
     },
 
@@ -170,7 +171,7 @@ export default {
           this.connected = true;
           this.sending = false;
           this.clearForm();
-          this.afficherFormulaire();
+         
         }, 1500);
       } else {
         window.setTimeout(() => {
