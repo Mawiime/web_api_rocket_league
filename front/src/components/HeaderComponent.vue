@@ -177,11 +177,11 @@ export default {
         }
       );
 
-      const data = await response.json();
+       const data =  await response.text().then(function(text) {
+        return text ? JSON.parse(text) : {}
+      })
 
       if (data.password == this.form.password) {
-        
-
         window.setTimeout(() => {
           if (data.rank == "admin") this.$store.dispatch("toggle_admin");
           else this.$store.dispatch("toggle_member");
@@ -190,7 +190,8 @@ export default {
           this.clearForm();
          
         }, 1500);
-      } else {
+      } 
+      else {
         window.setTimeout(() => {
           this.wrongPassword = true;
           this.sending = false;
