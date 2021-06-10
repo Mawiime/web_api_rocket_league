@@ -113,9 +113,5 @@ h1{
     right: 0;
     content: ' ';
   }
-
-html,body  
-{  
-overflow:hidden;  
-}  
+ 
 </style>
