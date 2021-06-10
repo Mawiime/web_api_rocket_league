@@ -102,6 +102,9 @@ h1{
   user-select: none;
 }
 
+#routComp{
+  width:100%
+}
 .blocker {
     position: fixed;
     top: 0;
